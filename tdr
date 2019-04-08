@@ -1,0 +1,3 @@
+eval `utils/tdr runtime -sh`
+tdr --style=note b
+scp *.pdf /eos/user/u/usarkar/www/AnalysisNote/draft/

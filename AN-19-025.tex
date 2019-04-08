@@ -1,0 +1,93 @@
+% Customizable fields and text areas start with % >> below.
+% Lines starting with the comment character (%) are normally removed before release outside the collaboration, but not those comments ending lines
+
+%%%%%%%%%%%%% local definitions %%%%%%%%%%%%%%%%%%%%%
+\RCS$Revision: 438143 $
+\RCS$HeadURL: svn+ssh://svn.cern.ch/reps/tdr2/notes/AN-16-395/trunk/AN-16-395.tex $
+\RCS$Id: AN-16-395.tex 438143 2017-12-08 13:49:18Z fjensen $
+
+\newcommand{\invfb}{\fbinv}
+\newcommand{\invpb}{\pbinv}
+\newcommand{\met}{\MET}
+\newcommand{\MHT}{\ensuremath{\rm{H}_{\rm{T}}^{miss}}}
+\newcommand{\gluino}{\ensuremath{\tilde{g}}\xspace}
+\newcommand{\NLSP}{\ensuremath{\tilde{\chi}^0_2}\xspace}
+\newcommand{\dphi}{\ensuremath{\Delta \phi_{\mathrm{min}}}\xspace}
+\newcommand{\LSP}{\ensuremath{\tilde{\chi}^0_1}\xspace}
+\newcommand{\lsp}{\LSP}
+\newcommand{\mgluino}{\ensuremath{m_{\sGlu}}\xspace}
+\newcommand{\znn}{\ensuremath{\Z\rightarrow \nu\overline{\nu}}\xspace}
+\newcommand{\hbb}{\ensuremath{H\rightarrow b\overline{b}}\xspace}
+\newcommand{\lint}{\ensuremath{\int\lumi\,\rd{t}}\xspace}
+% This allows for switching between one column and two column (cms@external) layouts
+% The widths should  be modified for your particular figures. You'll need additional copies if you have more than one standard figure size.
+\newlength\cmsFigWidth
+\ifthenelse{\boolean{cms@external}}{\setlength\cmsFigWidth{0.85\columnwidth}}{\setlength\cmsFigWidth{0.4\textwidth}}
+\ifthenelse{\boolean{cms@external}}{\providecommand{\cmsLeft}{top\xspace}}{\providecommand{\cmsLeft}{left\xspace}}
+\ifthenelse{\boolean{cms@external}}{\providecommand{\cmsRight}{bottom\xspace}}{\providecommand{\cmsRight}{right\xspace}}
+%%%%%%%%%%%%%%%  Title page %%%%%%%%%%%%%%%%%%%%%%%%
+\cmsNoteHeader{AN-19-025} % This is over-written in the CMS environment: useful as preprint no. for export versions
+% >> Title: please make sure that the non-TeX equivalent is in PDFTitle below for papers. For PASs, PDFTitle can be used with plain TeX.
+\title{Search for supersymmetry using boosted Z Bosons and
+missing transverse momentum in proton-proton collisions
+at 13 TeV}
+
+% >> Authors
+%Author is always "The CMS Collaboration" for PAS and papers, so author, etc, below will be ignored in those cases
+%For multiple affiliations, create an address entry for the combination
+%To mark authors as primary, use the \author* form
+\address[COL]{University of Colorado Boulder (US)}
+\address[TIFR]{Tata Institute of Fundamental Research, Mumbai}
+\author[COL]{R.~Patel}
+\author[TIFR]{U.~Sarkar}
+% >> Date
+% The date is in yyyy/mm/dd format. Today has been
+% redefined to match, but if the date needs to be fixed, please write it in this fashion.
+\date{\today}
+
+% >> Abstract
+% Abstract processing:
+% 1. **DO NOT use \include or \input** to include the abstract: our abstract extractor will not search through other files than this one.
+% 2. **DO NOT use %**                  to comment out sections of the abstract: the extractor will still grab those lines (and they won't be comments any longer!).
+% 3. For PASs: **DO NOT use CMS tex macros.**...in the abstract: CDS MathJax processor used on the abstract doesn't understand them _and_ will only look within $$. The abstracts for papers are hand formatted so macros are okay.
+\abstract{
+   A search for supersymmetry is presented with bosons and large missing transverse momentum in proton-proton collisions collected by the CMS experiment at the LHC at $\sqrt{s}=13$~TeV. We target Higgs bosons produced with large momentum, where the hadronization byproducts of a pair of b-quarks can be reconstructed in a single jet. The analysis makes use of an algorithm to identify jets reconstructed from overlapping $b\overline{b}$. The background from multijet and $t\overline{t}$ events is significanctly reduced with requirements on the heavy flavor tagging of the jet and its mass. The data sample corresponds to an integrated luminosity of 35.9~fb$^{-1}$ and was collected in 2016.
+}
+
+% >> PDF Metadata
+% Do not comment out the following hypersetup lines (metadata). They will disappear in NODRAFT mode and are needed by CDS.
+% Also: make sure that the values of the metadata items are sensible and are in plain text with the possible exception of the PDFtitle for a PAS. Then you can use pure TeX symbols as if on a typewriter. Examples: $\sqrt{s}=13\TeV$ => $sqrt{s}=$ 13 TeV; 32\fbinv => 32 fb$^{-1}$
+% No unescaped comment % characters.
+% No curly braces {} except for TeX in the PDFtitle.
+\hypersetup{%
+pdfauthor={CMS Collaboration},%
+pdftitle={Search for supersymmetry using boosted Z Bosons and
+missing transverse momentum in proton-proton collisions
+at 13 TeV},%
+pdfsubject={CMS},%
+pdfkeywords={CMS, physics, software, computing}}
+
+\maketitle %maketitle comes after all the front information has been supplied
+% >> Text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Begin text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% **DO NOT REMOVE THE BIBLIOGRAPHY** which is located before the appendix.
+%% You can take the text between here and the bibiliography as an example which you should replace with the actual text of your document.
+%% If you include other TeX files, be sure to use "\input{filename}" rather than "\input f
+\clearpage
+\tableofcontents
+\clearpage
+
+\input{introduction}
+\input{event-samples}
+\input{triggers}
+\input{event-selection}
+\input{bkgestimation}
+\input{results}
+\clearpage
+%\newpage
+\bibliography{auto_generated}   % will be created by the tdr script.
+\clearpage
+\appendix
+\clearpage
+%%% DO NOT ADD \end{document}!
+
